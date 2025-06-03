@@ -9,12 +9,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../public/assets/css/sidebarResposive.css">
+    <script src="https://kit.fontawesome.com/23c663159a.js" crossorigin="anonymous"></script>
     <title>Programa Ecoeficiência</title>
     <link rel="icon" href="../../public/assets/img/ecoeficiencia.png" type="image/png">
+
 </head>
 
 <body>
+    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
     <div class="container">
         <div class="sidebar">
             <img src="../../public/assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
@@ -27,11 +31,37 @@
                     <li><a href="?page=troca">Troca</a></li>
                     <li><a href="?page=verSaldo">Visualizar Saldo</a></li>
                     <li><a href="?page=relatorio">Relatórios</a></li>
-                    <li><a href="?page=logout">Sair</a></li>
+                    
                 </ul>
             </nav>
+            <nav class="sair">
+                <ul>
+                    <li ><a href="?page=logout">Sair</a></li>
+                </ul>
+            </nav>
+            
         </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const sidebar = document.querySelector(".sidebar");
 
+            menuToggle.addEventListener("click", function () {
+                sidebar.classList.toggle("show");
+                menuToggle.classList.toggle("active");
+            });
+
+            document.addEventListener("click", function (event) {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickOnToggle = menuToggle.contains(event.target);
+
+                if (!isClickInsideSidebar && !isClickOnToggle && sidebar.classList.contains("show")) {
+                sidebar.classList.remove("show");
+                menuToggle.classList.remove("active");
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
