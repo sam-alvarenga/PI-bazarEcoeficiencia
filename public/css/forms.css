@@ -1,19 +1,35 @@
+:root {
+    /* Cores de fundo */
+    --white: #fff; /* container, texto button e texto doador-found*/
+    --blue-green: #005f73; /* cor de fundo botão e texto | cor de fundo doador-found e border */
+    --waterGreen: #0a9396; /* hover do button */
+    --lightGray: #ccc;
+
+}
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+/* ---- Doação---- */
 .form-container {
-    max-width: 500px;
-    margin: 0 auto;
-    background: #fff;
+    max-width: 400px;
+    margin: 0 auto; /*centralizando o container*/
+    background: var(--white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
 }
 
 
-/* ---Estilo h2 do cadastro e login */
+/* ---Estilo h2 forms Doação, Usuário--- */
 
 .form-container h2 {
     margin-bottom: 20px;
     text-align: center;
-    color: #005f73;
+    color: var(--blue-green);
+    font-weight: 700;
+    font-size: 40px;
 }
 
 .form-container form label,
@@ -28,18 +44,18 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--lightGray);
     border-radius: 5px;
 }
 
 
-/* Estilo dos Botões do cadastro e login */
+/* Estilo dos Botões forms Doação, Usuário */
 
 .form-container button {
     width: 150px;
     padding: 8px 16px;
-    background: #005f73;
-    color: white;
+    background: var(--blue-green);
+    color: var(--white);
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -52,7 +68,7 @@
 }
 
 .form-container button:hover {
-    background: #0a9396;
+    background: var(--waterGreen);
 }
 
 .form-container img {
@@ -76,8 +92,8 @@
     box-sizing: border-box;
     padding: 24px 16px;
     margin: 10px 0 20px 0;
-    background-color: #9deeef;
-    border: solid 1px #07494a;
-    color: #07494a;
+    background-color: var(--blue-green);
+    border: solid 1px var(--blue-green);
+    color: var(--white);
     font-weight: bold;
 }
