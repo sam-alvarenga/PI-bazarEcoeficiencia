@@ -1,4 +1,4 @@
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .sidebar {
         position: fixed;
         top: 0;
@@ -30,7 +30,7 @@
     display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
     .menu-toggle {
         display: block !important;
     }

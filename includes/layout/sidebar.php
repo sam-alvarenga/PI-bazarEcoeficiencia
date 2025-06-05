@@ -10,15 +10,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
-    <link rel="stylesheet" href="../../public/assets/css/sidebarResposive.css">
+    <link rel="stylesheet" href="../../public/assets/css/main.css">
     <script src="https://kit.fontawesome.com/23c663159a.js" crossorigin="anonymous"></script>
     <title>Programa Ecoeficiência</title>
     <link rel="icon" href="../../public/assets/img/ecoeficiencia.png" type="image/png">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button>
+    <!-- <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button> -->
     <div class="container">
         <div class="sidebar">
             <img src="../../public/assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
@@ -34,7 +36,7 @@
                     
                 </ul>
             </nav>
-            <nav class="sair">
+            <nav class="logout">
                 <ul>
                     <li ><a href="?page=logout">Sair</a></li>
                 </ul>
@@ -42,7 +44,7 @@
             
         </div>
     </div>
-    <script>
+    <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuToggle = document.querySelector(".menu-toggle");
             const sidebar = document.querySelector(".sidebar");
@@ -62,6 +64,6 @@
                 }
             });
         });
-    </script>
+    </script> -->
 </body>
 </html>
