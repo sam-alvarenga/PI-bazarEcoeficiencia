@@ -1,0 +1,32 @@
+.report-container {
+    max-width: 500px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: var(--blue-green);
+}
+
+.report-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.topic{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.report-container ul li ul,
+.report-container ul li span
+{
+    font-size: 1.2rem;
+    margin-left: 25px;
+    font-weight: lighter;
+}
+
+.report-container ul li:hover {
+    background-color: #e9ecef;
+    cursor: pointer;
+    border-radius: 10px;
+}
