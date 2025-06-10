@@ -1,10 +1,10 @@
 
-/* ---- Doação---- */
 .form-container {
-    max-width: 400px;
-    margin: 0 auto; /*centralizando o container*/
-    background: var(--white);
-    padding: 30px;
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
+    /*centralizando o container*/
+    background: white;
     border-radius: 10px;
     box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
 }
@@ -17,33 +17,36 @@
     text-align: center;
     color: var(--blue-green);
     font-weight: 700;
-    font-size: 40px;
+    font-size: 30px;
 }
 
-.form-container form label,
-.form-container form select {
+.form-container form label {
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-.form-container form input,
-.form-container form select {
+.doador-area {
+    width: 100%;
+}
+
+.doador-area form input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid var(--gray);
+    border: 1px solid #000;
     border-radius: 5px;
+
+
 }
 
 
 /* Estilo dos Botões forms Doação, Usuário */
 
-.form-container button {
+.form-container .btn-submit {
     width: 150px;
     padding: 8px 16px;
-    background: var(--blue-green);
-    color: var(--white);
+    background: #005F73;
+    color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 14px;
@@ -51,37 +54,95 @@
     transition: background 0.3s;
     display: block;
     /* Garantindo que o botão se comporte como um bloco */
-    margin: 20px auto 0;
+    margin: 40px auto 0;
     /* Centraliza o botão e adiciona um espaço acima dele */
 }
 
 .form-container button:hover {
-    background: var(--water-green);
+    background: #0a9396;
 }
 
-.form-container img {
-    max-width: 100px;
-    justify-self: center;
-    align-self: center;
-}
-
-.form-container img:hover {
-    opacity: .5;
-}
-
+/*---Informações do doador---*/
 .doador-area {
-    padding: 40px 0;
+    padding-bottom: 30px;
 }
 
-.doador-found {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 24px 16px;
-    margin: 10px 0 20px 0;
-    background-color: var(--blue-green);
-    border: solid 1px var(--blue-green);
-    color: var(--white);
+.doador-info {
+    background-color: #005F73;
+    padding: 15px;
     font-weight: bold;
+    color: #fff;
+}
+
+/*---FIM Informações do doador---*/
+
+/*---Lista de compras---*/
+.list-container {
+    width: 100%;
+    border: 1px solid #CCCC;
+
+}
+
+.form-container h3 {
+    text-align: center;
+    margin: 20px;
+    font-size: 25px;
+}
+
+.item-info {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin: 0 5px;
+    /* descolar os itens e os button da borda */
+    padding: 2px;
+}
+
+.last {
+    border-bottom: none;
+}
+
+.quantity-control {
+    padding: 10px;
+}
+
+/*--- Input da quantidade---*/
+.quantity-input {
+    width: 50px;
+    /* Largura para o input */
+    padding: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ---Retirando as setas do Input--- */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*--- Botão de -/+ ---*/
+.btn-control {
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #ccc;
 }
