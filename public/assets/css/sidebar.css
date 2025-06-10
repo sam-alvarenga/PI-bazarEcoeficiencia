@@ -46,8 +46,20 @@
 }
 
 .logout{
-    margin-top: 100%;
+    margin-top: 180px;
     align-items: center;
     justify-content: center;
     align-self: center;
+}
+
+.login{
+    width: 100%;
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: light;
+    margin-bottom: 30px;
+}
+
+.login span:hover{
+    color: var(--blue-green);
 }

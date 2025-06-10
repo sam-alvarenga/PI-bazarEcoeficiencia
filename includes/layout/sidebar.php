@@ -23,11 +23,19 @@
     <!-- <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button> -->
     <div class="container">
         <div class="sidebar">
-            <img src="../../public/assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
+            <img src="../assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
 
            <!--  <?php echo isset($_COOKIE['user_name']) ? "Logado " . $_COOKIE['user_name'] : ""; ?> -->
+             <nav class="login">
+                <ul>
+                    <li>
+                        🟢Logado:<span>ROOT:ADMIN</span>
+                    </li>
+                </ul>
+             </nav>
             <nav>
                 <ul>
+                    <li><a href="?page=home">Home</a></li>
                     <li><a href="?page=cadastro">Cadastro de Usuários</a></li>
                     <li><a href="?page=doacao">Cadastro de Doação</a></li>
                     <li><a href="?page=troca">Troca</a></li>
