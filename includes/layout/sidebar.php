@@ -9,8 +9,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
-    <link rel="stylesheet" href="../../public/assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/sidebar.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
     <script src="https://kit.fontawesome.com/23c663159a.js" crossorigin="anonymous"></script>
     <title>Programa Ecoeficiência</title>
     <link rel="icon" href="../../public/assets/img/ecoeficiencia.png" type="image/png">
