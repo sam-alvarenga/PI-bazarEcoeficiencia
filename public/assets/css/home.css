@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image:url("./../img/ecoeficienciaMaisOpaco.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    display: flex;
+    background-position: 0 250px;
+    align-items: center;
+    justify-content: center;
+}
+
+.recado-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.info {
+    margin-top: 30%;
+    
+}
+
+h2, h3 {
+    color: #005F73;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+p {
+    color: #005F73;
+    font-weight: bold;
+    font-size: 26px;
+    margin-top: 20px;
+}
