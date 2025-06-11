@@ -14,7 +14,12 @@ session_start();
 
     <!-- css link-->
     <link rel="stylesheet" href="../assets/css/registrations.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
@@ -33,8 +38,8 @@ session_start();
         </div>
 
         <div class="doador-info">
-            <p>Doador:<span></span></p>
-            <p>Quantidade de SenaCoins:<span></span></p>
+            <p>Doador:<span class="spaced-span">Paulo</span></p>
+            <p>Quantidade de SenaCoins:<span class="spaced-span">150</span></p>
         </div>
         <!-- FIM Area do doador-->
 
@@ -45,39 +50,39 @@ session_start();
             <div class="item-row">
                 <div class="item-info">Acessórios - $3</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <button class="btn-control ">+</button>
                 </div>
             </div>
             <div class="item-row">
                 <div class="item-info">Livros | DVD | CD | Disco - $3</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <button class="btn-control ">+</button>
                 </div>
             </div>
             <div class="item-row">
                 <div class="item-info">Utensílios de Cozinha - $3</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <button class="btn-control ">+</button>
                 </div>
             </div>
             <div class="item-row">
                 <div class="item-info">Artigos de Decoração - $3</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <button class="btn-control ">+</button>
                 </div>
             </div>
             <div class="item-row">
                 <div class="item-info">Vestuário e Calçados - $5</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
                     <button class="btn-control">+</button>
                 </div>
@@ -85,7 +90,7 @@ session_start();
             <div class="item-row">
                 <div class="item-info">Brinquedos e Jogos - $5</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
                     <button class="btn-control">+</button>
                 </div>
@@ -93,15 +98,15 @@ session_start();
             <div class="item-row">
                 <div class="item-info">Artigos Automotivos - $6</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
                     <button class="btn-control">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Eletrônicos e<br> Eletrodomésticos - $10</div>
+                <div class="item-info">Eletrônicos e Eletrodomésticos - $10</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
                     <button class="btn-control">+</button>
                 </div>
@@ -109,7 +114,7 @@ session_start();
             <div class="item-row last">
                 <div class="item-info">Mochilas - $10</div>
                 <div class="quantity-control">
-                    <button class="btn-control">-</button>
+                    <button class="btn-control round-left">-</button>
                     <input type="number" class="quantity-input" value="0" min="0">
                     <button class="btn-control">+</button>
                 </div>
