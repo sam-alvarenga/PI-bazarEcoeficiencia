@@ -1,7 +1,19 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background-color: #F4F4F9;
+
+}
 
 .form-container {
     max-width: 500px;
-    padding: 15px;
+    padding: 20px 50px;
     margin: 0 auto;
     /*centralizando o container*/
     background: white;
@@ -15,28 +27,34 @@
 .form-container h2 {
     margin-bottom: 20px;
     text-align: center;
-    color: var(--blue-green);
+    color: #005f73;
+    /* blue-green */
     font-weight: 700;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .form-container form label {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold;
+
 }
 
+/*---Informações do doador---*/
 .doador-area {
-    width: 100%;
+    padding-bottom: 30px;
 }
 
 .doador-area form input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #000;
+    border: 1px solid #ccc;
+
     border-radius: 5px;
+}
 
-
+.doador-info span {
+    margin-left: 10px;
+    /* ou mais, conforme o espaço desejado */
 }
 
 
@@ -54,7 +72,7 @@
     transition: background 0.3s;
     display: block;
     /* Garantindo que o botão se comporte como um bloco */
-    margin: 40px auto 0;
+    margin: 20px auto 0;
     /* Centraliza o botão e adiciona um espaço acima dele */
 }
 
@@ -62,10 +80,6 @@
     background: #0a9396;
 }
 
-/*---Informações do doador---*/
-.doador-area {
-    padding-bottom: 30px;
-}
 
 .doador-info {
     background-color: #005F73;
@@ -74,35 +88,44 @@
     color: #fff;
 }
 
+/* Espaçamento dos elementos do quantidade e nome do doador */
+.spaced-span {
+    margin-left: 10px
+}
+
 /*---FIM Informações do doador---*/
 
 /*---Lista de compras---*/
 .list-container {
     width: 100%;
-    border: 1px solid #CCCC;
+    border: 1px solid #CCC;
 
 }
 
 .form-container h3 {
     text-align: center;
-    margin: 20px;
     font-size: 25px;
+    margin: 20px;
 }
 
 .item-info {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
 }
 
 
 .item-row {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ccc;
-    margin: 0 5px;
     /* descolar os itens e os button da borda */
-    padding: 2px;
+
 }
 
 .last {
@@ -111,18 +134,19 @@
 
 .quantity-control {
     padding: 10px;
+    display: flex
 }
 
 /*--- Input da quantidade---*/
 .quantity-input {
-    width: 50px;
+    width: 100px;
     /* Largura para o input */
     padding: 2px;
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     border: 1px solid #ccc;
-    border-radius: 4px;
+
 }
 
 /* ---Retirando as setas do Input--- */
@@ -139,10 +163,13 @@ input[type=number] {
 
 /*--- Botão de -/+ ---*/
 .btn-control {
-    width: 25px;
-    height: 25px;
+    padding: 5px 35px;
     border: none;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 0 8px 8px 0;
     background-color: #ccc;
+}
+
+.round-left {
+    border-radius: 8px 0 0 8px;
 }
