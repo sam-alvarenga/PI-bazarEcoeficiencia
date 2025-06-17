@@ -1,10 +1,3 @@
-.container {
-    display: flex;
-    width: 100vw;
-    height:100vh;
-    position: fixed;
-}
-
 .sidebar {
     width: 16%;
     background-color: var(--water-green);
@@ -14,6 +7,9 @@
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease-in-out;
+    position: fixed;
+    height: 100vh;
+    width: 18vw;
 }
 
 .logo {
@@ -62,4 +58,5 @@
 
 .login span:hover{
     color: var(--blue-green);
+    cursor: pointer;
 }

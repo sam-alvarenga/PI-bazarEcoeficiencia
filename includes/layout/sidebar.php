@@ -1,16 +1,11 @@
-<?php
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
+    <link rel="stylesheet" href="../../public/assets/css/main.css">
     <script src="https://kit.fontawesome.com/23c663159a.js" crossorigin="anonymous"></script>
     <title>Programa Ecoeficiência</title>
     <link rel="icon" href="../../public/assets/img/ecoeficiencia.png" type="image/png">
@@ -20,12 +15,8 @@
 </head>
 
 <body>
-    <!-- <button class="menu-toggle"><i class="fa-solid fa-bars"></i></button> -->
-    <div class="container">
         <div class="sidebar">
-            <img src="../assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
-
-           <!--  <?php echo isset($_COOKIE['user_name']) ? "Logado " . $_COOKIE['user_name'] : ""; ?> -->
+            <img src="../../public/assets/img/ecoeficiencia.png" alt="Programa Ecoeficiência" class="logo">
              <nav class="login">
                 <ul>
                     <li>
@@ -51,7 +42,7 @@
             </nav>
             
         </div>
-    </div>
+
     <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             const menuToggle = document.querySelector(".menu-toggle");
