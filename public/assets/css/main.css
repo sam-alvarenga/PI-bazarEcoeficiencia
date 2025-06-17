@@ -1,11 +1,20 @@
 * {
-    margin: 0;/*zerando a margin*/
-    padding: 0;/*zerando o padding*/
-    box-sizing: border-box;/*trava de tamanho dos elementos*/
-    --white: #fff;/*variável da cor branca*/
-    --blue-green: #005f73;/*variável da cor verde escuro*/
-    --water-green:#0a9396;/*variável da cor verde claro*/
-    --light-gray:#f4f4f9;/*variável da cor cinza claro*/
-    font-family: 'Roboto', sans-serif;/*fontes raizes*/
-    line-height: 1.6;/*espaçamento entre linhas*/
+    margin: 0;
+    /*zerando a margin*/
+    padding: 0;
+    /*zerando o padding*/
+    box-sizing: border-box;
+    /*trava de tamanho dos elementos*/
+    --white: #fff;
+    /*variável da cor branca*/
+    --blue-green: #005f73;
+    /*variável da cor verde escuro*/
+    --water-green: #0a9396;
+    /*variável da cor verde claro*/
+    --light-gray: #f4f4f9;
+    /*variável da cor cinza claro*/
+    font-family: 'Roboto', sans-serif;
+    /*fontes raizes*/
+    line-height: 1.6;
+    /*espaçamento entre linhas*/
 }

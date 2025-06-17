@@ -1,3 +1,7 @@
+<?php 
+include ("../../includes/layout/sidebar.php")
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -6,9 +10,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/reports.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./../assets/css/main.css">
+    <link rel="stylesheet" href="./../assets/css/reports.css">
+    <title>Veja seu Saldo!</title>
+    <style>
+      
+
+    </style>
 </head>
 <body>
     <div class="report-container">

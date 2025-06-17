@@ -1,3 +1,7 @@
+body{
+    display: flex;
+}
+
 .report-container {
     max-width: 500px;
     margin: 0 auto;
@@ -6,6 +10,7 @@
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: var(--blue-green);
+    margin-top: 50px;
 }
 
 .report-container h2 {
@@ -53,10 +58,10 @@
     width: 100%;
     border: 2px solid;
     border-collapse: collapse;
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
-tbody tr:hover {
+ tbody tr:hover {
     background-color: var(--blue-green);
     color: var(--white);
 }
