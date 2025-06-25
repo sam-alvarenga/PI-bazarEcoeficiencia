@@ -1,0 +1,61 @@
+body {
+    background-color: var(--light-gray);
+    display: flex;
+}
+
+.form-container {
+    
+    max-width: 500px;
+    padding: 20px 50px;
+    margin: 0 auto;
+    /*centralizando o container*/
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--blue-green);
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.user-area form label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 1.3rem;
+}
+.user-area form select option:hover{
+    background-color: var(--blue-green);
+    color: var(--white);
+}
+.user-area form input, .user-area form select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--blue-green);
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.user-area .btn-submit {
+    width: '100%';
+    padding: 8px 16px;
+    background: var(--blue-green);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: block;
+    margin: 20px auto 0;
+}
+
+.form-container button:hover {
+    background: var(--water-green);
+}

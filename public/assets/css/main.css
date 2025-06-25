@@ -6,6 +6,8 @@
     --blue-green: #005f73;/*variável da cor verde escuro*/
     --water-green:#0a9396;/*variável da cor verde claro*/
     --light-gray:#f4f4f9;/*variável da cor cinza claro*/
+    --soft-gray: #ccc;/**/
+    --black:#000;
     font-family: 'Roboto', sans-serif;/*fontes raizes*/
     line-height: 1.6;/*espaçamento entre linhas*/
 }
