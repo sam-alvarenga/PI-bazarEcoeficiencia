@@ -1,0 +1,154 @@
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.form-container {
+    max-width: 500px;
+    padding: 15px;
+    margin: 0 auto;
+    /*centralizando o container*/
+    background: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ---Estilo h2 forms Doação, Usuário--- */
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--blue-green);
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.doador-area {
+    width: 100%;
+}
+
+.doador-area form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+
+}
+
+
+/* Estilo dos Botões forms Doação, Usuário */
+
+.form-container .btn-submit {
+    width: 150px;
+    padding: 8px 16px;
+    background: #005F73;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: block;
+    /* Garantindo que o botão se comporte como um bloco */
+    margin: 40px auto 0;
+    /* Centraliza o botão e adiciona um espaço acima dele */
+}
+
+.form-container button:hover {
+    background: #0a9396;
+}
+
+/*---Informações do doador---*/
+.doador-area {
+    padding-bottom: 30px;
+}
+
+.doador-info {
+    background-color: #005F73;
+    padding: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/*---FIM Informações do doador---*/
+
+/*---Lista de compras---*/
+.list-container {
+    width: 100%;
+    border: 1px solid #CCCC;
+
+}
+
+.form-container h3 {
+    text-align: center;
+    margin: 20px;
+    font-size: 25px;
+}
+
+.item-info {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin: 0 5px;
+    /* descolar os itens e os button da borda */
+    padding: 2px;
+}
+
+.last {
+    border-bottom: none;
+}
+
+.quantity-control {
+    padding: 10px;
+}
+
+/*--- Input da quantidade---*/
+.quantity-input {
+    width: 50px;
+    /* Largura para o input */
+    padding: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* ---Retirando as setas do Input--- */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/*--- Botão de -/+ ---*/
+.btn-control {
+    width: 25px;
+    height: 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #ccc;
+}
