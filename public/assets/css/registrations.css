@@ -34,9 +34,9 @@ body {
     color: var(--white);
 }
 .user-area form input, .user-area form select {
-    width: 100%;
+    width: 350px;
     padding: 10px;
-    border: 2px solid var(--blue-green);
+    border: 1px solid var(--soft-gray);
     border-radius: 5px;
     outline: none;
     font-size: 1.1rem;
