@@ -1,3 +1,7 @@
+<?php
+    require_once("../../includes/layout/sidebar.php");
+?> 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
