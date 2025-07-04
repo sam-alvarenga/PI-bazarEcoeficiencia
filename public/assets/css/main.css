@@ -4,6 +4,7 @@
     box-sizing: border-box;/*trava de tamanho dos elementos*/
     --white: #fff;/*variável da cor branca*/
     --blue-green: #005f73;/*variável da cor verde escuro*/
+    --blue-green-transparent: #006073e3;/*variável da cor verde escuro com transparencia*/
     --water-green:#0a9396;/*variável da cor verde claro*/
     --light-gray:#f4f4f9;/*variável da cor cinza claro*/
     font-family: 'Roboto', sans-serif;/*fontes raizes*/
