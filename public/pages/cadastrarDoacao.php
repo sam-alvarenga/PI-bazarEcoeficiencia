@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+require_once('../../includes/layout/sidebar.php')
+
 
 ?>
 
@@ -14,11 +15,13 @@ session_start();
 
     <!-- css link-->
     <link rel="stylesheet" href="../assets/css/registrations.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+
 
 </head>
 
@@ -38,14 +41,14 @@ session_start();
         </div>
 
         <div class="doador-info">
-            <p>Doador:<span class="spaced-span">Paulo</span></p>
-            <p>Quantidade de SenaCoins:<span class="spaced-span">150</span></p>
+            <p>Doador:<span class="spaced-span">Maria.sf</span></p>
+            <p>Quantidade de SenaCoins:<span class="spaced-span">0</span></p>
         </div>
         <!-- FIM Area do doador-->
 
         <!-- Lista de compras -->
 
-        <h3>Itens para Doação</h3>
+        <h3 class="title-list">Itens para Doação</h3>
         <div class="list-container">
             <div class="item-row">
                 <div class="item-info">Acessórios - $3</div>
@@ -125,6 +128,7 @@ session_start();
         <button class="btn-submit" type="submit" name="action" value="doar">Doar</button>
 
     </div>
+   
 </body>
 
 </html>
