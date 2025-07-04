@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+    .form-container{
+        margin: 0 auto;
+        width: 100vw;
+    }
+    .user-area form input, .user-area form select{
+        width: 100%;
+        justify-content: center;
+    }
+    .user-area form label{
+        font-size: 1.1rem;
+    }
+}

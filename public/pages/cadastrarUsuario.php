@@ -1,6 +1,4 @@
-<?php
-    require_once("../../includes/layout/sidebar.php");
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/registrations.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/registrationsResponsive.css">
     <title>Cadastre os usuários aqui!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
