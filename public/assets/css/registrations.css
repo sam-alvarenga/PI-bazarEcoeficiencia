@@ -1,41 +1,15 @@
-* {
-
-    margin: 0;
-    /*zerando a margin*/
-    padding: 0;
-    /*zerando o padding*/
-    box-sizing: border-box;
-    /*trava de tamanho dos elementos*/
-    --white: #fff;
-    /*variável da cor branca*/
-    --blue-green: #005f73;
-    /*variável da cor verde escuro*/
-    --water-green: #0a9396;
-    /*variável da cor verde claro*/
-    --light-gray: #f4f4f9;
-    /*variável da cor cinza claro*/
-    --soft-gray: #ccc;
-    font-family: 'Roboto', sans-serif;
-    /*fontes raizes*/
-    line-height: 1.6;
-    /*espaçamento entre linhas*/
-    font-weight: bold;
-
-
-}
-
 
 body {
     background-color: var(--light-gray);
-    margin: 20px 0;
-  
-    
+    display: flex ;
+
 }
+
 
 .form-container {
     max-width: 500px;
     padding: 20px 50px;
-    margin: 0 auto;
+    margin: 20px auto;
     /*centralizando o container*/
     background: var(--white);
     border-radius: 10px;
@@ -110,19 +84,30 @@ body {
 
 /*---FIM Informações do doador---*/
 
+
 /*---Lista de compras---*/
+
+/*Formulário */
 .list-container {
     width: 100%;
     border: 1px solid var(--soft-gray);
 
 }
 
-.form-container h3 {
+/*Texto h3*/
+.title-list {
+    border: 1px solid var(--soft-gray);
+    background-color: var(--blue-green);
+    color: white;
     text-align: center;
-    font-size: 25px;
-    margin: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-radius: 10px 10px 0 0;
 }
 
+
+/*Nomes dos Itens*/
 .item-info {
     font-weight: bold;
     font-size: 1rem;
@@ -150,12 +135,13 @@ body {
 
 .quantity-control {
     padding: 10px;
-    display: flex
+    display: flex;
+    justify-content: center;
 }
 
 /*--- Input da quantidade---*/
 .quantity-input {
-    width: 100px;
+    width: 40%;
     /* Largura para o input */
     font-size: 18px;
     font-weight: bold;
@@ -175,6 +161,7 @@ input[type=number]::-webkit-inner-spin-button {
 input[type=number] {
     -moz-appearance: textfield;
 }
+
 
 /*--- Botão de -/+ ---*/
 .btn-control {
