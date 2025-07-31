@@ -34,7 +34,7 @@ require_once('../../includes/layout/sidebar.php')
             <form action="cadastrarDoacao.php" method="post">
 
                 <label for="email-doador">E-mail do doador:</label>
-                <input type="email" id="email-doador" name="doador" required>
+                <input type="email" id="email-doador"  placeholder="Digite seu e-mail. Ex: maria.s.ferreira@gmail.com" name="doador" required>
 
             </form>
             <button class="btn-submit" type="submit" name="action" value="verificar">Verificar Doador</button>
