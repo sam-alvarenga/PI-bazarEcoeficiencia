@@ -1,4 +1,6 @@
-
+<?php 
+include ("../../includes/layout/sidebar.php")
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
