@@ -1,5 +1,5 @@
 <?php 
-    require_once('../../includes/layout/sidebar.php')
+    include('../../includes/layout/sidebar.php')
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

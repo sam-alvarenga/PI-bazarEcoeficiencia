@@ -2,6 +2,7 @@
     .form-container{
         margin: 0 auto;
         width: 100vw;
+        height: 100vh;
     }
     .user-area form input, .user-area form select{
         width: 100%;
