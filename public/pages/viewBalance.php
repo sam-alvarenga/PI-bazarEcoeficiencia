@@ -21,7 +21,7 @@ include ("../../includes/layout/sidebar.php")
 </head>
 <body>
     <div class="report-container">
-        <img src="../assets/img/senacoin.webp" alt="Moeda Amarela SenaCoin">
+        <img src="../assets/img/senacoin.webp" alt="Moeda Amarela SenaCoin" class="">
         <div class="balance">
             <h3>Seu Saldo Atual é:</h3>
             <h2>15</h2>
