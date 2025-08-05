@@ -1,7 +1,6 @@
-
 body {
     background-color: var(--light-gray);
-    display: flex ;
+    display: flex;
 
 }
 
@@ -17,7 +16,7 @@ body {
 }
 
 
-/* ---Estilo h2 forms Doação, Usuário--- */
+/* ---Estilo h2 forms Doação e Venda--- */
 
 .form-container h2 {
     margin-bottom: 20px;
@@ -30,6 +29,7 @@ body {
 .form-container form label {
     display: block;
     margin-bottom: 10px;
+    font-weight: bold;
 
 }
 
@@ -43,10 +43,12 @@ body {
     padding: 10px;
     border: 1px solid var(--soft-gray);
     border-radius: 5px;
+    outline: none;
+
 }
 
 
-/* Estilo dos Botões forms Doação, Usuário */
+/* Estilo dos Botões forms Doação, Venda */
 
 .form-container .btn-submit {
     width: 150px;
@@ -82,7 +84,7 @@ body {
     margin-left: 10px
 }
 
-/*---FIM Informações do doador---*/
+/*---FIM Informações do doador e Venda---*/
 
 
 /*---Lista de compras---*/
@@ -175,4 +177,26 @@ input[type=number] {
 /* arrendodar as bordas do button esquerdo dabtn-control - */
 .round-left {
     border-radius: 8px 0 0 8px;
+}
+
+/*Total de senaicons*/
+.senacoins-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.senacoins-result p {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.senacoins-result img {
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+   
+
 }
