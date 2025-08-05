@@ -2,36 +2,17 @@
     .sidebar {
         position: fixed;
         top: 0;
-        left: -300px; /* Oculta o menu */
-        height: 100%;
+        left: -300px;
+        height: 100vh;
         transition: left 0.3s ease-in-out;
+        background-color: var(--blue-green-transparent);
     }
 
     .sidebar.show {
         left: 0;
     }
     
-}
-
-.menu-toggle {
-    display: none !important;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: none;
-    border: none;
-    font-size: 45px;
-    cursor: pointer;
-    color: #005f73;
-    z-index: 1000;
-}
-
-.menu-toggle.active {
-    display: none !important;
-}
-
-@media (max-width: 768px) {
     .menu-toggle {
-        display: block !important;
+        display:block;
     }
 }

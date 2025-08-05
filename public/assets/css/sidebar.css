@@ -1,5 +1,4 @@
 .sidebar {
-    width: 16%;
     background-color: var(--water-green);
     color: var(--white);
     padding: 20px;
@@ -10,6 +9,7 @@
     position: fixed;
     height: 100vh;
     width: 18vw;
+    min-width: 280px;
 }
 
 .logo {
@@ -42,7 +42,7 @@
 }
 
 .logout{
-    margin-top: 180px;
+    margin-top: 150px;
     align-items: center;
     justify-content: center;
     align-self: center;
@@ -59,4 +59,20 @@
 .login span:hover{
     color: var(--blue-green);
     cursor: pointer;
+}
+
+.menu-toggle {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+    color: var(--blue-green);
+    display: none;
+}
+
+.menu-toggle.active {
+    display: none;
 }
