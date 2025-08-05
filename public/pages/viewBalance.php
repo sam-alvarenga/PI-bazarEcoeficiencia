@@ -12,6 +12,7 @@ include ("../../includes/layout/sidebar.php")
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./../assets/css/main.css">
     <link rel="stylesheet" href="./../assets/css/reports.css">
+    <link rel="stylesheet" href="./../assets/css/reportsResponsiveB.css">
     <title>Veja seu Saldo!</title>
     <style>
       
