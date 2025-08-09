@@ -32,10 +32,6 @@ body {
     margin-top: 10px;
     font-size: 1.3rem;
 }
-.user-area form select option:hover{
-    background-color: var(--blue-green);
-    color: var(--white);
-}
 .user-area form input, .user-area form select {
     width: 350px;
     padding: 10px;
