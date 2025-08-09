@@ -1,5 +1,6 @@
 body{
     display: flex;
+    background-color: var(--light-gray);
 }
 
 .report-container {
