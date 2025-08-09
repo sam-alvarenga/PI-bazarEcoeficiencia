@@ -1,8 +1,6 @@
 @media (max-width: 768px) {
     .form-container{
-        margin: 0 auto;
         width: 100vw;
-        height: 100vh;
     }
     .user-area form input, .user-area form select{
         width: 100%;
@@ -13,5 +11,12 @@
     }
     h2{
         margin-top: 50px;
+    }
+}
+@media (max-width: 500px) {
+    .form-container{
+        margin: 0 auto;
+        width: 100vw;
+        height: 100vh;
     }
 }
