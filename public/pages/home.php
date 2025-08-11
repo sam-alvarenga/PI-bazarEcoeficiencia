@@ -1,5 +1,5 @@
 <?php
-    include("../../includes/layout/sidebar.php")
+   // include("../../includes/layout/sidebar.php")
 ?>
 
 <!DOCTYPE html>
