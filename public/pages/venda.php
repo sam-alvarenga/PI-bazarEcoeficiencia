@@ -16,6 +16,7 @@ require_once('../../includes/layout/sidebar.php')
     <!-- css link-->
     <link rel="stylesheet" href="../assets/css/registrations.css">
     <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/responsiveSaleDonation.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,7 +125,7 @@ require_once('../../includes/layout/sidebar.php')
                 </div>
             </div>
         </div>
-        
+
         <div class="senacoins-result">
             <p>Total SenaCoins: $0 </p>
             <img src="../assets/img/senacoin.webp" alt="">
