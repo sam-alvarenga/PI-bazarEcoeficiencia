@@ -1,202 +1,60 @@
 body {
     background-color: var(--light-gray);
     display: flex;
-
 }
 
-
 .form-container {
+    
     max-width: 500px;
     padding: 20px 50px;
-    margin: 20px auto;
+    margin: 0 auto;
     /*centralizando o container*/
     background: var(--white);
     border-radius: 10px;
     box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
-
-
-/* ---Estilo h2 forms Doação e Venda--- */
 
 .form-container h2 {
     margin-bottom: 20px;
     text-align: center;
     color: var(--blue-green);
     font-weight: 700;
-    font-size: 40px;
+    font-size: 2rem;
 }
 
-.form-container form label {
+
+
+/*PARTE DO CADASTRO DE USUARIOS*/
+.user-area form label {
     display: block;
     margin-bottom: 10px;
-    font-weight: bold;
-
+    margin-top: 10px;
+    font-size: 1.3rem;
 }
-
-/*---Informações do doador---*/
-.doador-area {
-    margin-bottom: 25px;
-}
-
-.doador-area form input {
-    width: 100%;
+.user-area form input, .user-area form select {
+    width: 350px;
     padding: 10px;
     border: 1px solid var(--soft-gray);
     border-radius: 5px;
     outline: none;
-
+    font-size: 1.1rem;
 }
 
-
-/* Estilo dos Botões forms Doação, Venda */
-
-.form-container .btn-submit {
-    width: 150px;
+.user-area .btn-submit {
+    width: '100%';
     padding: 8px 16px;
     background: var(--blue-green);
     color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: background 0.3s;
     display: block;
-    /* Garantindo que o botão se comporte como um bloco */
     margin: 20px auto 0;
-    /* Centraliza o botão e adiciona um espaço acima dele */
 }
 
 .form-container button:hover {
     background: var(--water-green);
-}
-
-
-.doador-info {
-    background-color: var(--blue-green);
-    border: 2px solid var(--soft-gray);
-    padding: 15px;
-    font-weight: bold;
-    color: var(--white);
-}
-
-/* Espaçamento dos elementos do quantidade e nome do doador */
-.spaced-span {
-    margin-left: 10px
-}
-
-/*---FIM Informações do doador e Venda---*/
-
-
-/*---Lista de compras---*/
-
-/*Formulário */
-.list-container {
-    width: 100%;
-    border: 1px solid var(--soft-gray);
-
-}
-
-/*Texto h3*/
-.title-list {
-    border: 1px solid var(--soft-gray);
-    background-color: var(--blue-green);
-    color: white;
-    text-align: center;
-    font-size: 20px;
-    margin-top: 20px;
-    padding: 10px 0;
-    border-radius: 10px 10px 0 0;
-}
-
-
-/*Nomes dos Itens*/
-.item-info {
-    font-weight: bold;
-    font-size: 1rem;
-    border-bottom: 1px solid var(--soft-gray);
-    width: 100%;
-    text-align: center;
-    padding: 5px 0;
-}
-
-
-.item-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--soft-gray);
-    /* descolar os itens e os button da borda */
-
-}
-
-/* Retirar a última bordar da lista, pois duplica */
-.last {
-    border-bottom: none;
-}
-
-.quantity-control {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-/*--- Input da quantidade---*/
-.quantity-input {
-    width: 40%;
-    /* Largura para o input */
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid var(--soft-gray);
-
-}
-
-/* ---Retirando as setas do Input--- */
-input[type=number]::-webkit-outer-spin-button,
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-
-input[type=number] {
-    -moz-appearance: textfield;
-}
-
-
-/*--- Botão de -/+ ---*/
-.btn-control {
-    padding: 5px 35px;
-    border: none;
-    cursor: pointer;
-    border-radius: 0 8px 8px 0;
-    background-color: var(--soft-gray);
-}
-
-/* arrendodar as bordas do button esquerdo dabtn-control - */
-.round-left {
-    border-radius: 8px 0 0 8px;
-}
-
-/*Total de senaicons*/
-.senacoins-result {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    margin-top: 15px;
-}
-
-.senacoins-result p {
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.senacoins-result img {
-    height: 25px;
-    width: 25px;
-    margin-left: 10px;
-   
-
 }
