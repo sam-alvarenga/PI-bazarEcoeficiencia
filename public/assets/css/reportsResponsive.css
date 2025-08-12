@@ -1,0 +1,18 @@
+ @media (max-width: 768px) {
+    .report-container{
+        width: 100vw;
+        padding: 50px;
+    }
+} 
+ @media (max-width: 500px) {
+    body{
+        width: 100vw;
+    }
+    .report-container{
+        margin: 0 auto;
+        padding: 50px;
+    }
+    h2{
+        margin-top: 50px;
+    }
+} 
