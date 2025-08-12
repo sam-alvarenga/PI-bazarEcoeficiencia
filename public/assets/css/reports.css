@@ -1,18 +1,20 @@
-body {
-    background-color: var(--light-gray);
+body{
     display: flex;
+    background-color: var(--light-gray);
 }
+
 .report-container {
     max-width: 500px;
-    padding: 20px 50px;
     margin: 0 auto;
     background: var(--white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     color: var(--blue-green);
-    margin-top: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
+
 .report-container h2 {
     text-align: center;
     font-size: 2rem;
@@ -34,4 +36,51 @@ body {
     background-color: #e9ecef;
     cursor: pointer;
     border-radius: 10px;
+}
+
+.report-container img{
+    width: 40%;
+    margin: 0 30%;
+}
+
+.balance h2{
+    font-size: 3rem;
+    margin: 0 auto;
+}
+.balance h3{
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+.balance{
+    margin-top: 20px;
+}
+.balance-list table,th,tr,td{
+    margin-top: 20px;
+    width: 100%;
+    border: 2px solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 8px;
+}
+ tbody tr:hover {
+    background-color: var(--blue-green);
+    color: var(--white);
+}
+.balance-btn{
+    display: flex;
+    justify-content: center;
+}
+.update-btn{
+    background-color: var(--blue-green);
+    color: var(--white);
+    border: none;
+    width: 40%;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.update-btn:active{
+    background-color: var(--water-green);
 }

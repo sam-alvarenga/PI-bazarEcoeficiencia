@@ -1,0 +1,12 @@
+ @media (max-width: 768px) {
+    .report-container{
+        width: 100vw;
+    }
+}
+ @media (max-width: 500px) {
+    .report-container{
+        margin: 0 auto;
+        height: 100%;
+        padding-top: 70px;
+    }
+}
