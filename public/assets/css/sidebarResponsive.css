@@ -15,4 +15,8 @@
     .menu-toggle {
         display:block;
     }
+
+    .logout{
+        margin-top: 0;
+    }
 }

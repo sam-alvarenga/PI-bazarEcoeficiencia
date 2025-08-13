@@ -18,7 +18,7 @@ require_once('../../includes/layout/sidebar.php')
     <link rel="stylesheet" href="../assets/css/main.css">
     <!-- css específico -->
     <link rel="stylesheet" href="../assets/css/donation-sale.css">
-  <!--   <link rel="stylesheet" href="../assets/css/responsiveSaleDonation.css"> -->
+    <link rel="stylesheet" href="../assets/css/responsiveSaleDonation.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
