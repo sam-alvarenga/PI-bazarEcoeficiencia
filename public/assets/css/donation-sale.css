@@ -1,16 +1,16 @@
 /*-- Forms Venda e Doação--- */
-.sale-container {
+.sale-container, .donation-container {
     /*centralizando o container*/
     margin: 20px auto;
 
 }
 
 /* ---h2 forms Venda e Doação --- */
-.sale-container h2 {
+.sale-container h2, .donation-container h2 {
     font-size: 40px;
 }
 
-.sale-container form label {
+.sale-container form label, .donation-container form label {
     font-weight: bold;
 
 }
@@ -26,7 +26,7 @@
 }
 
 /*--- Botao verificar doador Venda, Doação --- */
-.sale-container .btn-submit {
+.sale-container .btn-submit, .donation-container .btn-submit {
     width: 150px;
     font-size: 14px;
 }
