@@ -1,0 +1,155 @@
+/*-- Forms Venda e Doação--- */
+.sale-container, .donation-container {
+    /*centralizando o container*/
+    margin: 20px auto;
+
+}
+
+/* ---h2 forms Venda e Doação --- */
+.sale-container h2, .donation-container h2 {
+    font-size: 40px;
+}
+
+.sale-container form label, .donation-container form label {
+    font-weight: bold;
+
+}
+
+/*---area do doador---*/
+.doador-area {
+    margin-bottom: 25px;
+}
+
+.doador-area form input {
+    width: 100%;
+
+}
+
+/*--- Botao verificar doador Venda, Doação --- */
+.sale-container .btn-submit, .donation-container .btn-submit {
+    width: 150px;
+    font-size: 14px;
+}
+
+/* ---Informações do doador Venda e Doação */
+.doador-info {
+    background-color: var(--blue-green);
+    border: 2px solid var(--soft-gray);
+    padding: 15px;
+    font-weight: bold;
+    color: var(--white);
+}
+
+/* Espaçamento dos elementos do quantidade e nome do doador */
+.spaced-span {
+    margin-left: 10px
+}
+
+/*---FIM Informações do doador e Venda---*/
+
+
+/*---Lista de compras Venda e Doação ---*/
+.list-container {
+    width: 100%;
+    border: 1px solid var(--soft-gray);
+
+}
+
+/*Texto h3*/
+.title-list {
+    border: 1px solid var(--soft-gray);
+    background-color: var(--blue-green);
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-radius: 10px 10px 0 0;
+}
+
+
+/*Nomes dos Itens*/
+.item-info {
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--soft-gray);
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+
+
+.item-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--soft-gray);
+    /* descolar os itens e os button da borda */
+
+}
+
+/* Retirar a última bordar da lista, pois duplica */
+.last {
+    border-bottom: none;
+}
+
+/* ---Botões Venda e Doação--- */
+.quantity-control {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/*--- Input da quantidade---*/
+.quantity-input {
+    width: 40%;
+    /* Largura para o input */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid var(--soft-gray);
+
+}
+
+/* ---Retirando as setas do Input--- */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*--- Botão de -/+ ---*/
+.btn-control {
+    padding: 5px 35px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    background-color: var(--soft-gray);
+}
+ 
+/* arrendodar as bordas do button esquerdo dabtn-control - */
+.round-left {
+    border-radius: 8px 0 0 8px;
+}
+ 
+/*Total de senaicons*/
+.senacoins-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    margin-top: 15px;
+}
+ 
+.senacoins-result p {
+    font-weight: bold;
+    font-size: 20px;
+}
+ 
+.senacoins-result img {
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+   
+}

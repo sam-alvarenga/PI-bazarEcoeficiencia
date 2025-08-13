@@ -1,14 +1,87 @@
+:root {
+    --white: #fff;
+    /*variável da cor branca*/
+    --blue-green: #005f73;
+    /*variável da cor verde escuro*/
+    --blue-green-transparent: #006073e3;
+    /*variável da cor verde escuro com transparencia*/
+    --water-green: #0a9396;
+    /*variável da cor verde claro*/
+    --light-gray: #f4f4f9;
+    /*variável da cor cinza claro*/
+    --soft-gray: #ccc;
+    /*variável da cor cinza claro*/
+    --black: #000;
+    /*variável da cor preto*/
+    font-family: 'Roboto', sans-serif;
+    /*fontes raizes*/
+    line-height: 1.6;
+    /*espaçamento entre linhas*/
+}
+
+
 * {
-    margin: 0;/*zerando a margin*/
-    padding: 0;/*zerando o padding*/
-    box-sizing: border-box;/*trava de tamanho dos elementos*/
-    --white: #fff;/*variável da cor branca*/
-    --blue-green: #005f73;/*variável da cor verde escuro*/
-    --blue-green-transparent: #006073e3;/*variável da cor verde escuro com transparencia*/
-    --water-green:#0a9396;/*variável da cor verde claro*/
-    --light-gray:#f4f4f9;/*variável da cor cinza claro*/
-    --soft-gray: #ccc;/*variável da cor cinza claro*/
-    --black:#000;/*variável da cor preto*/
-    font-family: 'Roboto', sans-serif;/*fontes raizes*/
-    line-height: 1.6;/*espaçamento entre linhas*/
+    margin: 0;
+    /*zerando a margin*/
+    padding: 0;
+    /*zerando o padding*/
+    box-sizing: border-box;
+    /*trava de tamanho dos elementos*/
+
+}
+
+/* Regras gerais Venda, Doação, Usuário */
+body {
+    background-color: var(--light-gray);
+    display: flex;
+
+}
+
+.form-container {
+    max-width: 500px;
+    padding: 20px 50px;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--blue-green);
+    font-weight: 700;
+
+}
+
+.form-container form label {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+form input, .user-area form select {
+    padding: 10px;
+    border: 1px solid var(--soft-gray);
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-container .btn-submit {
+    padding: 8px 16px;
+    background: var(--blue-green);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: block;
+    /* Garantindo que o botão se comporte como um bloco */
+    margin: 20px auto 0;
+    /* Centraliza o botão e adiciona um espaço acima dele */
+}
+
+
+.form-container button:hover {
+    background: var(--water-green);
 }

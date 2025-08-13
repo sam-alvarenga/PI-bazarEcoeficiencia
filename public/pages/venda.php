@@ -14,8 +14,10 @@ require_once('../../includes/layout/sidebar.php')
     <title>Doação</title>
 
     <!-- css link-->
-    <link rel="stylesheet" href="../assets/css/registrations.css">
+    <!-- css geral -->
     <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- css específico -->
+    <link rel="stylesheet" href="../assets/css/donation-sale.css">
     <link rel="stylesheet" href="../assets/css/responsiveSaleDonation.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +29,7 @@ require_once('../../includes/layout/sidebar.php')
 </head>
 
 <body>
-    <div class="form-container">
+    <div class="form-container sale-container">
 
         <h2>Venda</h2>
         <!-- Area do doador -->
