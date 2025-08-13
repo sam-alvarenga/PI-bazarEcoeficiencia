@@ -18,7 +18,7 @@
 </head>
 
 <body>
-        <div class="form-container">
+        <div class="form-container user-container">
             <h2>Cadastro de Usuários</h2>
             <div class="user-area">
                 <form action="cadastro.php" method="post">
