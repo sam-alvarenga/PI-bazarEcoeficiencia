@@ -57,6 +57,7 @@ input {
     border: none;
     color: #fff;
     font-weight: bold;
+    outline: none;
 }
 
 button {
