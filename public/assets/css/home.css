@@ -2,8 +2,7 @@ body {
     background-image:url("./../img/ecoeficienciaMaisOpaco.png");
     background-repeat: no-repeat;
     background-size:80%;
-    background-position: 350px 300px;
-    left: 5%;
+    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,8 +14,7 @@ body {
     justify-content: center;
     display: flex;
     flex-direction: column;
-    margin-left: 12%;
-    margin-bottom: 18%;
+
 
 }
 
@@ -26,7 +24,6 @@ h2, h3 {
     color: #005F73;
     font-weight: bold;
     font-size: 38px;
-    justify-content: center;
 }
 
 h3 {
@@ -36,13 +33,14 @@ h3 {
 p {
     color: #005F73;
     font-weight: bold;
-    font-size: 26px;
+    font-size: 35px;
     margin-top: 20px;
 }
 
 @media (min-width: 769px) and (max-width: 1140px) {
     body{
         background-image: none;
+        background-size: none;
     }
 
     .recado-container {
@@ -69,6 +67,7 @@ p {
     @media (min-width: 426px) and (max-width: 768px) {
         body{
             background-image: none;
+            
         }
 
         .recado-container {
@@ -95,6 +94,8 @@ p {
     @media (max-width: 425px) {
         body{
             background-image: none;
+            
+            
         }
 
         .recado-container {
@@ -109,7 +110,7 @@ p {
         }
         
         h2 {
-            padding-left: 30px;
+            padding-left: 20px;
         }
         
         p {
