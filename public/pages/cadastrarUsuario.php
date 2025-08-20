@@ -1,5 +1,22 @@
 <?php 
-    include('../../includes/layout/sidebar.php')
+    session_start();
+    include('../../includes/layout/sidebar.php'); 
+    include('../classes/Usuario.php');
+    include_once('../../includes/Conexao.php');
+
+    $CadastroUsuario = new Usuario();
+
+   /*  var_dump($_POST); */
+
+    if (isset($_POST['Nome']) && isset($_POST['Senha']) && isset($_POST['Perfil']) && isset($_POST['Email'])) {
+        /* $CadastroUsuario->setNome($_POST['Nome']);
+        $CadastroUsuario->setEmail($_POST['Email']);
+        $CadastroUsuario->setSenha($_POST['Senha']);
+        $CadastroUsuario->setPerfil($_POST['Perfil']); */
+        
+        $CadastroUsuario->CadastroUsuario($_POST['Nome'], $_POST['Email'],$_POST['Senha'], $_POST['Perfil']);
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -21,24 +38,24 @@
         <div class="form-container user-container">
             <h2>Cadastro de Usuários</h2>
             <div class="user-area">
-                <form action="cadastro.php" method="post">
-                    <select name="perfil">
+                <form action="cadastrarUsuario.php" method="post">
+                    <select name="Perfil">
                         <option selected disabled value="">Selecionar Perfil</option>
                         <option value="colaborador">Colaboradores</option>
                         <option value="adm">Adm</option>
                         <option value="doador">Doador</option>
                     </select>
                     <label for="nome">Nome:</label>
-                    <input type="text" placeholder="Nome" id="nome" name="nome" required>
+                    <input type="text" placeholder="Nome" id="nome" name="Nome" required>
                     <label for="email">Email Pessoal:</label>
-                    <input placeholder="Ex.: mariasouza@gmail.com" id="email" name="email" required>
+                    <input type="email" placeholder="Ex.: mariasouza@gmail.com" id="email" name="Email" required>
                     <label for="senha">Senha:</label>
-                    <input placeholder="Digite uma senha de até 4 caracteres" type="password" id="senha" name="senha"
+                    <input placeholder="Digite uma senha de até 8 caracteres" type="password" id="senha" name="Senha"
                         required>
                     <label for="confirma_senha">Confirmar Senha:</label>
                     <input placeholder="Digite novamente a senha" type="password" id="confirma_senha"
                         name="confirma_senha" required>
-                    <button type="submit" class="btn-submit">Cadastrar</button>
+                    <button type="submit" class="btn-submit" name="cadastrar">Cadastrar</button>
                 </form>
             </div>
         </div>
