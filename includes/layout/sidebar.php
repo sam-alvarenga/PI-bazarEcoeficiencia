@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/assets/css/sidebar.css">
     <link rel="stylesheet" href="../../public/assets/css/main.css">
-    <link rel="stylesheet" href="../../public/assets/css/sidebarResponsive.css">
+    <link rel="stylesheet" href="../../public/assets/css/responsive/sidebarResponsive.css">
 
     <title>Programa Ecoeficiência</title>
     <link rel="icon" href="../../public/assets/img/ecoeficiencia.png" type="image/png">
@@ -32,7 +32,7 @@
                 <li><a href="?page=home">Home</a></li>
                 <li><a href="?page=cadastro">Cadastro de Usuários</a></li>
                 <li><a href="?page=doacao">Cadastro de Doação</a></li>
-                <li><a href="?page=troca">Troca</a></li>
+                <li><a href="?page=troca">Venda</a></li>
                 <li><a href="?page=verSaldo">Visualizar Saldo</a></li>
                 <li><a href="?page=relatorio">Relatórios</a></li>
 
