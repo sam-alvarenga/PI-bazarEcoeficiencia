@@ -52,84 +52,84 @@ require_once('../../includes/layout/sidebar.php')
 
         <!-- Lista de compras -->
 
-        <h3 class="title-list">Itens para Doação</h3>
+        <h3 class="title-list">Itens para Venda</h3>
         <div class="list-container">
             <div class="item-row">
-                <div class="item-info">Acessórios - $3</div>
+                <div class="item-info" data-price="3">Acessórios - $3</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control ">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Livros | DVD | CD | Disco - $3</div>
+                <div class="item-info" data-price="3">Livros | DVD | CD | Disco - $3</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control ">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Utensílios de Cozinha - $3</div>
+                <div class="item-info" data-price="3">Utensílios de Cozinha - $3</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control ">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Artigos de Decoração - $3</div>
+                <div class="item-info" data-price="3">Artigos de Decoração - $3</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control ">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Vestuário e Calçados - $5</div>
+                <div class="item-info" data-price="5">Vestuário e Calçados - $5</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Brinquedos e Jogos - $5</div>
+                <div class="item-info" data-price="5">Brinquedos e Jogos - $5</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Artigos Automotivos - $6</div>
+                <div class="item-info" data-price="6">Artigos Automotivos - $6</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row">
-                <div class="item-info">Eletrônicos e Eletrodomésticos - $10</div>
+                <div class="item-info" data-price="10">Eletrônicos e Eletrodomésticos - $10</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
             <div class="item-row last">
-                <div class="item-info">Mochilas - $10</div>
+                <div class="item-info" data-price="10">Mochilas - $10</div>
                 <div class="quantity-control">
                     <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0">
-                    <button class="btn-control">+</button>
+                    <input type="number" class="quantity-input" value="0" min="0" readonly>
+                    <button class="btn-control round-right">+</button>
                 </div>
             </div>
         </div>
 
         <div class="senacoins-result">
-            <p>Total SenaCoins: $0 </p>
+            <p>Total SenaCoins: $<span class="senacoins-total">0</span> </p>
             <img src="../assets/img/senacoin.webp" alt="">
         </div>
         <button class="btn-submit" type="submit" name="action" value="doar">Finalizar Compra</button>
@@ -138,7 +138,7 @@ require_once('../../includes/layout/sidebar.php')
 
 
     </div>
-
+    <script src="../assets/java/mainScript.js"></script>
 </body>
 
 </html>
