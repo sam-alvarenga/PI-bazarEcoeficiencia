@@ -48,7 +48,7 @@ CREATE TABLE vendaProduto (
 idVenda INT NOT NULL,
 idProduto INT NOT NULL,
 quantidade INT NOT NULL,
-CONSTRAINT fk_vendaProduto_venda FOREIGN KEY (idVenda) REFERENCES troca (idVenda),
+CONSTRAINT fk_vendaProduto_venda FOREIGN KEY (idVenda) REFERENCES venda (idVenda),
 CONSTRAINT fk_vendaProduto_produtos FOREIGN KEY (idProduto) REFERENCES produtos (idProduto)
 );
 
