@@ -38,6 +38,26 @@ class Usuario
         mysqli_close($conexao->getConnection());
     }
 
+    public function getUsuarioByEmail($Email)
+    {
+        $conexao = new Conexao();
+
+        $sql = "SELECT * FROM usuarios WHERE email='$Email'";
+
+        if (mysqli_query($conexao->getConnection(), $sql)) {
+            $result = mysqli_query($conexao->getConnection(), $sql);
+            $row = mysqli_fetch_assoc($result);
+            return $row;
+        } else {
+            echo "Erro: " . $sql . "<br>" . mysqli_error($conexao->getConnection());
+        }
+        mysqli_close($conexao->getConnection());
+    }
+
+    public function showUsuario()
+    {
+    }
+
     function __set($atributo, $valor)
     {
         $this->$atributo = $valor;
@@ -45,7 +65,7 @@ class Usuario
 
     function __get($atributo)
     {
-        return $this->$atributo;
+        echo $this->$atributo;
 
     }
 
