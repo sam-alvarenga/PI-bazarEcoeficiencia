@@ -1,41 +1,38 @@
 <?php
-include '../../includes/Conexao.php';
-include 'Usuario.php';
-$idUsuarioC = new Usuario();
+include_once '../../includes/Conexao.php';
+
 class Venda
 {
-
-    protected $idVenda;
-
-    protected $idUsuario = $idUsuarioC->getUsuarioById($id);
-
     public function getVendaById($id)
     {
         $conexao = new Conexao();
-
         $sql = "SELECT * FROM troca WHERE idTroca=$id";
+        $result = mysqli_query($conexao->getConnection(), $sql);
 
-        if (mysqli_query($conexao->getConnection(), $sql)) {
-            echo "Venda Encontrada";
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
         } else {
-            echo "Erro: " . $sql . "<br>" . mysqli_error($conexao->getConnection());
+            return null;
         }
-        mysqli_close($conexao->getConnection());
     }
 
-    public function CadastrarVenda($idVenda, $idUsuario)
+    public function CadastrarVenda($idUsuario)
     {
         $conexao = new Conexao();
+        $conn = $conexao->getConnection();
 
-        $sql = "INSERT INTO troca (idTroca, idUsuario) 
-            VALUES ('$idVenda', '$idUsuario')";
+        $sql = "INSERT INTO troca (idUsuario) VALUES ('$idUsuario')";
 
-        if (mysqli_query($conexao->getConnection(), $sql)) {
-            echo "Novo registro criado com sucesso; ";
+        if (mysqli_query($conn, $sql)) {
+            // Retorna o ID da doação recém-criada
+            $idDoacao = mysqli_insert_id($conn);
+            mysqli_close($conn);
+            return $idDoacao;
         } else {
-            echo "Erro: " . $sql . "<br>" . mysqli_error($conexao->getConnection());
+            echo "Erro: " . mysqli_error($conn);
+            mysqli_close($conn);
+            return false;
         }
-        mysqli_close($conexao->getConnection());
     }
 }
 ?>

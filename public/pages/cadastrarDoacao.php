@@ -1,23 +1,86 @@
 <?php
 session_start();
-/* include('../../includes/layout/sidebar.php'); */
-include('../classes/Usuario.php');
-include_once('../../includes/Conexao.php');
-include('../classes/Doacao.php');
-include('../classes/DoacaoProduto.php');
 
-$ProcuraUsuario = new Usuario();
-$CadDoacao = new Doacao();
-$CadDoacaoProduto = new DoacaoProduto();
+include_once('../classes/Usuario.php');
+include_once('../classes/Doacao.php');
+include_once('../classes/DoacaoProduto.php');
+include('../../includes/layout/sidebar.php');
 
-if (isset($_POST['doador'])) {
-    $Usuario = $ProcuraUsuario->getUsuarioByEmail($_POST['doador']);
+// Verifica e armazena o usuário
+if (isset($_POST['doador']) && $_POST['action'] === 'verificar') {
+    $Usuario = new Usuario();
+    $usuario = $Usuario->getUsuarioByEmail($_POST['doador']);
+    if ($usuario) {
+        $_SESSION['idUsuario'] = $usuario['idUsuario'];
+        $_SESSION['usuarioNome'] = $usuario['nome'];
+        $_SESSION['usuarioCoin'] = $usuario['coin'];
+    } else {
+        echo "Usuário não encontrado!";
+    }
 }
-if (isset($_POST['doador'])) {
-    
+
+// Ao clicar em Doar
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "doar") {
+
+    if (isset($_SESSION['idUsuario'])) {
+        $idUsuario = $_SESSION['idUsuario'];
+        $nomeUsuario = $_SESSION['usuarioNome'];
+        $coinUsuario = $_SESSION['usuarioCoin'];
+
+        // Cria a doação
+        $Doacao = new Doacao();
+        $idDoacao = $Doacao->CadastrarDoacao($idUsuario);
+
+        if ($idDoacao) {
+            $DoacaoProduto = new DoacaoProduto();
+
+            $mapaProdutos = [
+                "qtdAcessorio" => 1,
+                "qtdLivro" => 2,
+                "qtdCozinha" => 3,
+                "qtdDecoracao" => 4,
+                "qtdVestuario" => 5,
+                "qtdBrinquedos" => 6,
+                "qtdAutomotivo" => 7,
+                "qtdEleteronico" => 8,
+                "qtdMochilas" => 9
+            ];
+
+            $precos = [
+                1 => 3,  2 => 3,  3 => 3,  4 => 3,
+                5 => 5,  6 => 5,  7 => 6,  8 => 10, 9 => 10
+            ];
+
+            $totalDoacao = 0;
+
+            foreach ($mapaProdutos as $campo => $idProduto) {
+                if (isset($_POST[$campo]) && $_POST[$campo] > 0) {
+                    $quantidade = $_POST[$campo];
+                    $totalDoacao += $quantidade * $precos[$idProduto];
+                    $DoacaoProduto->CadastrarDoacaoProduto($idProduto, $idDoacao, $quantidade);
+                }
+            }
+
+            // Atualiza coins usando a sessão
+            $Usuario = new Usuario();
+            $novoCoin = $coinUsuario + $totalDoacao;
+            $Usuario->AtualizarCoins($idUsuario, $novoCoin);
+
+            // Atualiza também na sessão
+            $_SESSION['usuarioCoin'] = $novoCoin;
+
+
+        } else {
+            echo "Erro ao criar doação.";
+        }
+    } else {
+        echo "Selecione o doador antes de doar!";
+    }
 }
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -59,9 +122,9 @@ if (isset($_POST['doador'])) {
         </div>
 
         <div class="doador-info">
-            <p>Doador:<span class="spaced-span"><?= isset($Usuario["nome"]) ? $Usuario["nome"] : "" ?></span></p>
+            <p>Doador:<span class="spaced-span"><?= isset($usuario["nome"]) ? $usuario["nome"] : "" ?></span></p>
             <p>Quantidade de SenaCoins:<span
-                    class="spaced-span"><?= isset($Usuario["coin"]) ? $Usuario["coin"] : "" ?></span></p>
+                    class="spaced-span"><?= isset($usuario["coin"]) ? $usuario["coin"] : "" ?></span></p>
         </div>
         <!-- FIM Area do doador-->
 

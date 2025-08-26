@@ -53,6 +53,7 @@ class Usuario
         }
         mysqli_close($conexao->getConnection());
     }
+    
 
     public function showUsuario()
     {
@@ -83,6 +84,22 @@ class Usuario
             echo 'Limite de caracteres ultrapassado.';
         }
         $this->Email = $Email;
+    }
+    public function AtualizarCoins($idUsuario, $novoCoin)
+    {
+        $conexao = new Conexao();
+        $conn = $conexao->getConnection();
+
+        $sql = "UPDATE usuarios SET coin = '$novoCoin' WHERE idUsuario = '$idUsuario'";
+
+        if (mysqli_query($conn, $sql)) {
+            mysqli_close($conn);
+            return true;
+        } else {
+            echo "Erro ao atualizar coins: " . mysqli_error($conn);
+            mysqli_close($conn);
+            return false;
+        }
     }
 }
 ?>

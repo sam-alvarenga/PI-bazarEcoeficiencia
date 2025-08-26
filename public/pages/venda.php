@@ -1,17 +1,85 @@
 <?php
 session_start();
-/* include('../../includes/layout/sidebar.php'); */
-include('../classes/Usuario.php');
-include_once('../../includes/Conexao.php');
 
-$ProcuraUsuario = new Usuario();
+include_once('../classes/Usuario.php');
+include_once('../classes/Venda.php');
+include_once('../classes/VendaProduto.php');
+include('../../includes/layout/sidebar.php');
 
-if (isset($_POST['doador'])) {
-    $Usuario = $ProcuraUsuario->getUsuarioByEmail($_POST['doador']);
+// Verifica e armazena o usuário
+if (isset($_POST['doador']) && $_POST['action'] === 'verificar') {
+    $Usuario = new Usuario();
+    $usuario = $Usuario->getUsuarioByEmail($_POST['doador']);
+    if ($usuario) {
+        $_SESSION['idUsuario'] = $usuario['idUsuario'];
+        $_SESSION['usuarioNome'] = $usuario['nome'];
+        $_SESSION['usuarioCoin'] = $usuario['coin'];
+    } else {
+        echo "Usuário não encontrado!";
+    }
+}
 
+// Ao clicar em vender
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "vender") {
+
+    if (isset($_SESSION['idUsuario'])) {
+        $idUsuario = $_SESSION['idUsuario'];
+        $nomeUsuario = $_SESSION['usuarioNome'];
+        $coinUsuario = $_SESSION['usuarioCoin'];
+
+        // Cria a doação
+        $Venda = new Venda();
+        $idVenda = $Venda->CadastrarVenda($idUsuario);
+
+        if ($idVenda) {
+            $VendaProduto = new VendaProduto();
+
+            $mapaProdutos = [
+                "qtdAcessorio" => 1,
+                "qtdLivro" => 2,
+                "qtdCozinha" => 3,
+                "qtdDecoracao" => 4,
+                "qtdVestuario" => 5,
+                "qtdBrinquedos" => 6,
+                "qtdAutomotivo" => 7,
+                "qtdEleteronico" => 8,
+                "qtdMochilas" => 9
+            ];
+
+            $precos = [
+                1 => 3,  2 => 3,  3 => 3,  4 => 3,
+                5 => 5,  6 => 5,  7 => 6,  8 => 10, 9 => 10
+            ];
+
+            $totalVenda = 0;
+
+            foreach ($mapaProdutos as $campo => $idProduto) {
+                if (isset($_POST[$campo]) && $_POST[$campo] > 0) {
+                    $quantidade = $_POST[$campo];
+                    $totalVenda += $quantidade * $precos[$idProduto];
+                    $VendaProduto->CadastrarVendaProduto($idProduto, $idVenda, $quantidade);
+                }
+            }
+
+            // Atualiza coins usando a sessão
+            $Usuario = new Usuario();
+            $novoCoin = $coinUsuario - $totalVenda;
+            $Usuario->AtualizarCoins($idUsuario, $novoCoin);
+
+            // Atualiza também na sessão
+            $_SESSION['usuarioCoin'] = $novoCoin;
+
+
+        } else {
+            echo "Erro ao criar doação.";
+        }
+    } else {
+        echo "Selecione o doador antes de doar!";
+    }
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -41,20 +109,20 @@ if (isset($_POST['doador'])) {
         <h2>Venda</h2>
         <!-- Area do doador -->
         <div class="doador-area">
-            <form action="cadastrarDoacao.php" method="post">
+            <form action="venda.php" method="post">
 
                 <label for="email-doador">E-mail do doador:</label>
                 <input type="email" id="email-doador" placeholder="Digite seu e-mail. Ex: maria.s.ferreira@gmail.com"
                     name="doador" required>
-
+                <button class="btn-submit" type="submit" name="action" value="verificar">Verificar Doador</button>
             </form>
-            <button class="btn-submit" type="submit" name="action" value="verificar">Verificar Doador</button>
+
         </div>
 
         <div class="doador-info">
-            <p>Doador:<span class="spaced-span"><?= isset($Usuario["nome"]) ? $Usuario["nome"] : "" ?></span></p>
+            <p>Doador:<span class="spaced-span"><?= isset($usuario["nome"]) ? $usuario["nome"] : "" ?></span></p>
             <p>Quantidade de SenaCoins:<span
-                    class="spaced-span"><?= isset($Usuario["coin"]) ? $Usuario["coin"] : "" ?></span></p>
+                    class="spaced-span"><?= isset($usuario["coin"]) ? $usuario["coin"] : "" ?></span></p>
         </div>
         <!-- FIM Area do doador-->
 
@@ -142,7 +210,7 @@ if (isset($_POST['doador'])) {
                 <p>Total SenaCoins: $<span class="senacoins-total">0</span> </p>
                 <img src="../assets/img/senacoin.webp" alt="">
             </div>
-            <button class="btn-submit" type="submit" name="action" value="doar">Doar</button>
+            <button class="btn-submit" type="submit" name="action" value="vender">Vender</button>
         </form>
 
     </div>

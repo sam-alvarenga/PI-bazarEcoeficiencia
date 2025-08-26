@@ -1,40 +1,42 @@
 <?php
-include '../../includes/Conexao.php';
-include 'Usuario.php';
-$idUsuarioC = new Usuario();
-
+include_once '../../includes/Conexao.php';
 class Doacao
 {
-    protected $idDoacao;
-
-    private $idUsuario = $idUsuarioC->getUsuarioByEmail($Email);
-
-    public function getDoacaoaById($id)
+    
+    public function getDoacaoById($id)
     {
         $conexao = new Conexao();
+        $sql = "SELECT * FROM doacao WHERE idDoacao=$id";
+        $result = mysqli_query($conexao->getConnection(), $sql);
 
-        $sql = "SELECT * FROM usuarios WHERE idDoacao=$id";
-
-        if (mysqli_query($conexao->getConnection(), $sql)) {
-            echo "Doação Encontrada";
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
         } else {
-            echo "Erro: " . $sql . "<br>" . mysqli_error($conexao->getConnection());
+            return null;
         }
-        mysqli_close($conexao->getConnection());
     }
-    public function CadastrarDoacao($idDoacao, $idUsuario)
+
+    public function CadastrarDoacao($idUsuario)
     {
         $conexao = new Conexao();
+        $conn = $conexao->getConnection();
 
-        $sql = "INSERT INTO doacao (idDoacao, idUsuario) 
-            VALUES ('$idDoacao', '$idUsuario')";
+        // Inserindo a doação
+        $sql = "INSERT INTO doacao (idUsuario) VALUES ('$idUsuario')";
 
-        if (mysqli_query($conexao->getConnection(), $sql)) {
-            echo "Novo registro criado com sucesso; ";
+        if (mysqli_query($conn, $sql)) {
+            // Retorna o ID da doação recém-criada
+            $idDoacao = mysqli_insert_id($conn);
+            mysqli_close($conn);
+            return $idDoacao;
         } else {
-            echo "Erro: " . $sql . "<br>" . mysqli_error($conexao->getConnection());
+            echo "Erro: " . mysqli_error($conn);
+            mysqli_close($conn);
+            return false;
         }
-        mysqli_close($conexao->getConnection());
     }
+
+
+
 }
 ?>
