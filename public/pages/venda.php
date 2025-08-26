@@ -1,9 +1,85 @@
 <?php
+session_start();
 
-require_once('../../includes/layout/sidebar.php')
+include_once('../classes/Usuario.php');
+include_once('../classes/Venda.php');
+include_once('../classes/VendaProduto.php');
+include('../../includes/layout/sidebar.php');
+
+// Verifica e armazena o usuário
+if (isset($_POST['doador']) && $_POST['action'] === 'verificar') {
+    $Usuario = new Usuario();
+    $usuario = $Usuario->getUsuarioByEmail($_POST['doador']);
+    if ($usuario) {
+        $_SESSION['idUsuario'] = $usuario['idUsuario'];
+        $_SESSION['usuarioNome'] = $usuario['nome'];
+        $_SESSION['usuarioCoin'] = $usuario['coin'];
+    } else {
+        echo "Usuário não encontrado!";
+    }
+}
+
+// Ao clicar em vender
+if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] === "vender") {
+
+    if (isset($_SESSION['idUsuario'])) {
+        $idUsuario = $_SESSION['idUsuario'];
+        $nomeUsuario = $_SESSION['usuarioNome'];
+        $coinUsuario = $_SESSION['usuarioCoin'];
+
+        // Cria a doação
+        $Venda = new Venda();
+        $idVenda = $Venda->CadastrarVenda($idUsuario);
+
+        if ($idVenda) {
+            $VendaProduto = new VendaProduto();
+
+            $mapaProdutos = [
+                "qtdAcessorio" => 1,
+                "qtdLivro" => 2,
+                "qtdCozinha" => 3,
+                "qtdDecoracao" => 4,
+                "qtdVestuario" => 5,
+                "qtdBrinquedos" => 6,
+                "qtdAutomotivo" => 7,
+                "qtdEleteronico" => 8,
+                "qtdMochilas" => 9
+            ];
+
+            $precos = [
+                1 => 3,  2 => 3,  3 => 3,  4 => 3,
+                5 => 5,  6 => 5,  7 => 6,  8 => 10, 9 => 10
+            ];
+
+            $totalVenda = 0;
+
+            foreach ($mapaProdutos as $campo => $idProduto) {
+                if (isset($_POST[$campo]) && $_POST[$campo] > 0) {
+                    $quantidade = $_POST[$campo];
+                    $totalVenda += $quantidade * $precos[$idProduto];
+                    $VendaProduto->CadastrarVendaProduto($idProduto, $idVenda, $quantidade);
+                }
+            }
+
+            // Atualiza coins usando a sessão
+            $Usuario = new Usuario();
+            $novoCoin = $coinUsuario - $totalVenda;
+            $Usuario->AtualizarCoins($idUsuario, $novoCoin);
+
+            // Atualiza também na sessão
+            $_SESSION['usuarioCoin'] = $novoCoin;
 
 
-    ?>
+        } else {
+            echo "Erro ao criar doação.";
+        }
+    } else {
+        echo "Selecione o doador antes de doar!";
+    }
+}
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -33,108 +109,109 @@ require_once('../../includes/layout/sidebar.php')
         <h2>Venda</h2>
         <!-- Area do doador -->
         <div class="doador-area">
-            <form action="cadastrarDoacao.php" method="post">
+            <form action="venda.php" method="post">
 
                 <label for="email-doador">E-mail do doador:</label>
                 <input type="email" id="email-doador" placeholder="Digite seu e-mail. Ex: maria.s.ferreira@gmail.com"
                     name="doador" required>
-
+                <button class="btn-submit" type="submit" name="action" value="verificar">Verificar Doador</button>
             </form>
-            <button class="btn-submit" type="submit" name="action" value="verificar">Verificar Doador</button>
+
         </div>
 
         <div class="doador-info">
-            <p>Doador:<span class="spaced-span">Maria.sf</span></p>
-            <p>Quantidade de SenaCoins:<span class="spaced-span">15</span></p>
+            <p>Doador:<span class="spaced-span"><?= isset($usuario["nome"]) ? $usuario["nome"] : "" ?></span></p>
+            <p>Quantidade de SenaCoins:<span
+                    class="spaced-span"><?= isset($usuario["coin"]) ? $usuario["coin"] : "" ?></span></p>
         </div>
         <!-- FIM Area do doador-->
 
         <!-- Lista de compras -->
 
         <h3 class="title-list">Itens para Venda</h3>
-        <div class="list-container">
-            <div class="item-row">
-                <div class="item-info" data-price="3">Acessórios - $3</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+        <form action="venda.php" method="post">
+            <div class="list-container">
+                <div class="item-row">
+                    <div class="item-info" data-price="3">Acessórios - $3</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdAcessorio" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="3">Livros | DVD | CD | Disco - $3</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="3">Livros | DVD | CD | Disco - $3</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdLivro" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="3">Utensílios de Cozinha - $3</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="3">Utensílios de Cozinha - $3</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdCozinha" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="3">Artigos de Decoração - $3</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="3">Artigos de Decoração - $3</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdDecoracao" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="5">Vestuário e Calçados - $5</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="5">Vestuário e Calçados - $5</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdVestuario" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="5">Brinquedos e Jogos - $5</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="5">Brinquedos e Jogos - $5</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdBrinquedos" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="6">Artigos Automotivos - $6</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="6">Artigos Automotivos - $6</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdAutomotivo" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row">
-                <div class="item-info" data-price="10">Eletrônicos e Eletrodomésticos - $10</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
+                <div class="item-row">
+                    <div class="item-info" data-price="10">Eletrônicos e Eletrodomésticos - $10</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdEleteronico" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
                 </div>
-            </div>
-            <div class="item-row last">
-                <div class="item-info" data-price="10">Mochilas - $10</div>
-                <div class="quantity-control">
-                    <button class="btn-control round-left">-</button>
-                    <input type="number" class="quantity-input" value="0" min="0" readonly>
-                    <button class="btn-control round-right">+</button>
-                </div>
-            </div>
-        </div>
+                <div class="item-row last">
+                    <div class="item-info" data-price="10">Mochilas - $10</div>
+                    <div class="quantity-control">
+                        <button class="btn-control round-left">-</button>
+                        <input type="number" class="quantity-input" name="qtdMochilas" value="0" min="0" readonly>
+                        <button class="btn-control round-right">+</button>
+                    </div>
 
-        <div class="senacoins-result">
-            <p>Total SenaCoins: $<span class="senacoins-total">0</span> </p>
-            <img src="../assets/img/senacoin.webp" alt="">
-        </div>
-        <button class="btn-submit" type="submit" name="action" value="doar">Finalizar Compra</button>
+                </div>
 
-
-
+            </div>
+            <div class="senacoins-result">
+                <p>Total SenaCoins: $<span class="senacoins-total">0</span> </p>
+                <img src="../assets/img/senacoin.webp" alt="">
+            </div>
+            <button class="btn-submit" type="submit" name="action" value="vender">Vender</button>
+        </form>
 
     </div>
     <script src="../assets/java/mainScript.js"></script>

@@ -1,20 +1,21 @@
-
 document.querySelectorAll('.item-row').forEach(row => {
     let modalQtd = 0;
     const input = row.querySelector('.quantity-input');
     const btnMais = row.querySelector('.round-right');
     const btnMenos = row.querySelector('.round-left');
+    const price = parseFloat(row.querySelector('.item-info').dataset.price);
 
-
-    // Botão de aumentar
-    btnMais.addEventListener('click', () => {
+    // Botão +
+    btnMais.addEventListener('click', (e) => {
+        e.preventDefault(); // não deixa o form recarregar
         modalQtd++;
         input.value = modalQtd;
         atualizarTotal();
     });
 
-    // Botão de diminuir
-    btnMenos.addEventListener('click', () => {
+    // Botão -
+    btnMenos.addEventListener('click', (e) => {
+        e.preventDefault();
         modalQtd--;
         if (modalQtd < 0) {
             modalQtd = 0;
@@ -22,8 +23,6 @@ document.querySelectorAll('.item-row').forEach(row => {
         input.value = modalQtd;
         atualizarTotal();
     });
-
-
 });
 
 // Função para somar todos os valores
