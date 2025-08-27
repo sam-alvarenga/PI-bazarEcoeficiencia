@@ -1,5 +1,48 @@
 <?php 
-include ("../../includes/layout/sidebar.php")
+/* include ("../../includes/layout/sidebar.php"); */
+include_once('../../includes/Conexao.php');
+
+// Conexão
+$conexao = new Conexao();
+$conn = $conexao->getConnection();
+
+// TOP 3 doadores
+$sqlTopDoadores = "
+    SELECT u.nome, COUNT(d.idDoacao) AS totalDoacoes
+    FROM usuarios u
+    JOIN doacao d ON u.idUsuario = d.idUsuario
+    GROUP BY u.idUsuario
+    ORDER BY totalDoacoes DESC
+    LIMIT 3
+";
+$resultTop = mysqli_query($conn, $sqlTopDoadores);
+$topDoadores = mysqli_fetch_all($resultTop, MYSQLI_ASSOC);
+
+// Quantidade total de produtos doados
+$sqlTotalProdutosDoados = "
+    SELECT SUM(dp.quantidade) AS totalProdutos
+    FROM doacaoproduto dp
+";
+$resultProdutosDoados = mysqli_query($conn, $sqlTotalProdutosDoados);
+$totalProdutosDo = mysqli_fetch_assoc($resultProdutosDoados)['totalProdutos'] ?? 0;
+
+// Quantidade total de produtos trocados (se tiver tabela de trocas similar a doação)
+$sqlTotalProdutosTrocados = "
+    SELECT SUM(tp.quantidade) AS totalTrocados
+    FROM trocaproduto tp
+";
+$resultProdutosTrocados = mysqli_query($conn, $sqlTotalProdutosTrocados);
+$totalProdutosTrocados = mysqli_fetch_assoc($resultProdutosTrocados)['totalTrocados'] ?? 0;
+
+// Quantidade de produtos por categoria (sobra e trocas)
+$sqlProdutosCategoria = "
+    SELECT p.nome, SUM(dp.quantidade) AS total
+    FROM produto p
+    LEFT JOIN doacaoproduto dp ON p.idProduto = dp.idProduto
+    GROUP BY p.idProduto
+";
+$resultCategoria = mysqli_query($conn, $sqlProdutosCategoria);
+$produtosCategoria = mysqli_fetch_all($resultCategoria, MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -16,43 +59,33 @@ include ("../../includes/layout/sidebar.php")
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="report-container">
-        <h2>Relatórios</h2>
-        <ul class="report-list">
-            <li class="topic">Top 3 pessoas que mais doaram:
-                <ul>
-                    <li>Benjamin Rollheiser (20 doações)</li>
-                    <li>Gabriel Bontempo (18 doações)</li>
-                    <li>Gabriel Brazão (16 doações)</li>
-                </ul>
-            </li>
-            <li class="topic">Quantidade total de produtos doados:<span>20<span>
-            </li>
-            <li class="topic">Quantidade total de produtos trocados:<span>16<span>
-            </li>
-            <li class="topic">Quantidade de produtos em sobra:
-                <ul>
-                    <li>Acessórios - 15</li>
-                    <li>Mochilas - 3</li>
-                    <li>Vestuário e Calçados - 6</li>
-                    <li>Artigos de Decoração - 9</li>
-                    <li>Eletrônicos e Eletrodomésticos - 5</li>
-                    <li>Brinquedos e Jogos - 7</li>
-                    <li>Livros | DVD | CD | Disco - 10</li>
-                </ul>
-            </li>
-            <li class="topic">Quantidade de trocas por categoria:
-                <ul>
-                    <li>Acessórios - 15</li>
-                    <li>Mochilas - 3</li>
-                    <li>Vestuário e Calçados - 6</li>
-                    <li>Artigos de Decoração - 9</li>
-                    <li>Eletrônicos e Eletrodomésticos - 5</li>
-                    <li>Brinquedos e Jogos - 7</li>
-                    <li>Livros | DVD | CD | Disco - 10</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+<div class="report-container">
+    <h2>Relatórios</h2>
+    <ul class="report-list">
+        <li class="topic">Top 3 pessoas que mais doaram:
+            <ul>
+                <?php foreach($topDoadores as $doador): ?>
+                    <li><?= htmlspecialchars($doador['nome']) ?> (<?= $doador['totalDoacoes'] ?> doações)</li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <li class="topic">Quantidade total de produtos doados:<span><?= $totalProdutosDo ?></span></li>
+        <li class="topic">Quantidade total de produtos trocados:<span><?= $totalProdutosTrocados ?></span></li>
+        <li class="topic">Quantidade de produtos em sobra:
+            <ul>
+                <?php foreach($produtosCategoria as $produto): ?>
+                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= $produto['total'] ?? 0 ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <li class="topic">Quantidade de trocas por categoria:
+            <ul>
+                <?php foreach($produtosCategoria as $produto): ?>
+                    <li><?= htmlspecialchars($produto['nome']) ?> - <?= $produto['total'] ?? 0 ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
